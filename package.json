@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,6 +43,11 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
-    "@ionic/lab": "2.0.15"
+    "@graphql-codegen/add": "^1.8.2",
+    "@graphql-codegen/cli": "^1.8.2",
+    "@graphql-codegen/typescript": "1.8.2",
+    "@graphql-codegen/typescript-operations": "1.8.2",
+    "@ionic/lab": "2.0.15",
+    "@graphql-codegen/typescript-react-apollo": "1.8.2"
   }
 }
