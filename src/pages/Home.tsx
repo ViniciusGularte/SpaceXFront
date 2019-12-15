@@ -4,7 +4,11 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
-  IonItem
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonImg
 } from "@ionic/react";
 import React from "react";
 import { useLaunchesPastQuery } from "../generated/graphql";
@@ -14,7 +18,7 @@ const Home: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Ionic Blank</IonTitle>
+          <IonTitle>SpaceX</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
@@ -23,9 +27,13 @@ const Home: React.FC = () => {
         ) : (
           data &&
           data.launchesPast!.map(launch => (
-            <IonItem key={launch.id as string}>
-              {launch.mission_name} | {launch.rocket.rocket_name}
-            </IonItem>
+            <IonCard key={launch.id as string}>
+              <IonCardHeader>
+                <IonCardTitle>{launch.mission_name}</IonCardTitle>
+              </IonCardHeader>
+              <IonImg src={launch.links.flickr_images[0]}></IonImg>
+              <IonCardContent>{launch.rocket.rocket_name}</IonCardContent>
+            </IonCard>
           ))
         )}
       </IonContent>
